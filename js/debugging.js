@@ -75,8 +75,6 @@ function logAdminIn(isAdmin) {
     }
 }
 logAdminIn(true)
-//
-
 
 let isAdmin = confirm("User one, please confirm that you are an admin.");
 logAdminIn(isAdmin);
