@@ -14,12 +14,14 @@
  */
 
 function addTen(input){
-    if (!isNaN(input)) {
-        return parseInt(input) + 10;
-    }else{
+    if (typeof input === 'number') {
+        return input + 10;
+        } else {
         return false;
-        }
     }
-console.log(addTen(10));
-
-
+}
+console.log(addTen(0),10);
+console.log(addTen(10), 20);
+console.log(addTen(-10), 0);
+console.log(addTen('bob'), false);
+console.log(addTen(100), 110);
