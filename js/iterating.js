@@ -15,7 +15,7 @@
      * array.
      */
 
-    // console.log(names)
+    // console.log(names);
 
     /**
      * TODO:
@@ -41,9 +41,8 @@
      * Refactor your above code to use a `forEach` loop
      */
 
-    names.forEach((name, index, orginalArr) => {
-        console.log(orginalArr);
-        console.log(`${name} has an index of ${name}`);
+    names.forEach((name) => {
+        console.log(name);
     });
 
     /**
