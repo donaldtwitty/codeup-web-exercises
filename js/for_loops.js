@@ -1,4 +1,4 @@
-// function showMultiplicationTable() {
+ // function showMultiplicationTable() {
 //     const number = parseInt(prompt('Enter an integer: '));
 //     for (let i = 1; i <= 10; i++) {
 //         const result = i * number;
@@ -8,20 +8,24 @@
 // showMultiplicationTable();
 
 // for (let i = 0; i<=200; i++) {
-//     let i = Math.floor(Math.random() * 200) + 20;
+//     let i = Math.floor(Math.random() * (200 - 20) + 1) + 20;
 //     if (i % 2 === 0) {
 //         console.log(i + " is even");
 //     } else {
 //         console.log(i + " is odd");
 //     }
-// }
-
-for () {
-    console.log()
 }
+//
 
+// function numPyramid() {
+//     for(let i = 1; i < 10; i++) {
+//         console.log(`${i.toString().repeat(i)}`);
+//     }
+// }
+// numPyramid();
 
-
-// for (let i = 5; i<=100; i+=5){
+//
+//
+// for (let i = 100; i>=5; i-=5){
 //     console.log(i)
 // }
