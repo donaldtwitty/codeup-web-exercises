@@ -21,7 +21,7 @@ console.log("js/planets-array.js");
      */
 
     const planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'];
-    planets.unshift('Sun');
+    planets.unshift('The Sun');
     console.log('Adding "The Sun" to the beginning of the planets array.');
     console.log(planets);
 
