@@ -11,7 +11,7 @@
      * console.log planetsArray to check your work
      */
     const planetsArray = ["Mercury", "Venus", "Earth",  "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
-    // console.log(planetsArray);
+    console.log(planetsArray);
 
     /**
      * TODO:
@@ -25,8 +25,8 @@
      */
 
 
-    const planetString = planetsArray.join("<br>");
-    console.log(planetString);
+    // const planetString = planetsArray.join("<br>");
+    // console.log(planetString);
 
     // const planetStringUnordered = planetsArray.
 
