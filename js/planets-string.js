@@ -28,6 +28,6 @@
     const planetString = planetsArray.join("<br>");
     console.log(planetString);
 
-    const planetStringUnordered = planetsArray.
+    // const planetStringUnordered = planetsArray.
 
 })();
