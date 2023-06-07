@@ -24,14 +24,14 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
-const person = {
-        firstName: "Donald",
-        lastName: "Twitty",
-        sayHello: "says hello!"
-    };
-
-    console.log(person.firstName);
-    console.log(person.lastName);
+// const person = {
+//         firstName: "Donald",
+//         lastName: "Twitty",
+//         sayHello: "says hello!"
+//     };
+//
+//     console.log(person.firstName);
+//     console.log(person.lastName);
 
     /**
      * TODO:
@@ -43,7 +43,7 @@ const person = {
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 
-    console.log(person.sayHello);
+    // console.log(person.sayHello);
 
 
 
@@ -60,12 +60,22 @@ const person = {
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
+    shoppers.forEach(function(shopper) {
+        let amountBeforeDiscount = shopper.amount;
+        let discount = 0;
+        let amountAfterDiscount = amountBeforeDiscount;
+        if (amountBeforeDiscount > 200) {
+            discount = amountBeforeDiscount * 0.12;
+            amountAfterDiscount = amountBeforeDiscount - discount;
+        }
+        let shoppers = [
+                {name: 'Cameron', amount: 180},
+                {name: 'Ryan', amount: 250},
+                {name: 'George', amount: 320}
+        ];
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+        console.log(`${shoppers.name} bought $${amountBeforeDiscount.toFixed(2)}, received a discount of $${discount.toFixed(2)}, and needs to pay $${amountAfterDiscount.toFixed(2)}.`);
+    })
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
