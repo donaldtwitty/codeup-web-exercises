@@ -24,14 +24,14 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
-// const person = {
-//         firstName: "Donald",
-//         lastName: "Twitty",
-//         sayHello: "says hello!"
-//     };
-//
-//     console.log(person.firstName);
-//     console.log(person.lastName);
+const person = {
+        firstName: "Donald",
+        lastName: "Twitty",
+        sayHello: "says hello!"
+    };
+
+    console.log(person.firstName);
+    console.log(person.lastName);
 
     /**
      * TODO:
@@ -43,7 +43,7 @@
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 
-    // console.log(person.sayHello);
+    console.log(person.sayHello);
 
 
 
@@ -60,22 +60,25 @@
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
-    shoppers.forEach(function(shopper) {
-        let amountBeforeDiscount = shopper.amount;
-        let discount = 0;
-        let amountAfterDiscount = amountBeforeDiscount;
-        if (amountBeforeDiscount > 200) {
-            discount = amountBeforeDiscount * 0.12;
-            amountAfterDiscount = amountBeforeDiscount - discount;
-        }
-        let shoppers = [
-                {name: 'Cameron', amount: 180},
-                {name: 'Ryan', amount: 250},
-                {name: 'George', amount: 320}
+
+    const shoppers = [
+            { name: "Cameron", amount: 180 },
+            { name: "Ryan", amount: 250 },
+            { name: "George", amount: 320 },
         ];
 
-        console.log(`${shoppers.name} bought $${amountBeforeDiscount.toFixed(2)}, received a discount of $${discount.toFixed(2)}, and needs to pay $${amountAfterDiscount.toFixed(2)}.`);
-    })
+    shoppers.forEach((shopper) => {
+        let discount = 0;
+        // check if the shopper spent more than $200 to apply the discount
+        if (shopper.amount > 200) {
+            discount = shopper.amount * 0.12;
+        }
+        console.log(
+            `${shopper.name} bought $${shopper.amount.toFixed(2)}, ${
+                discount > 0 ? "has a discount of $" + discount.toFixed(2) : "no discount"
+            }, and needs to pay $${(shopper.amount - discount).toFixed(2)}.`
+            );
+    });
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
