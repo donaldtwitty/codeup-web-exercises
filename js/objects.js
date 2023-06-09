@@ -1,15 +1,15 @@
-// const meMyselfAndI = {
-//     color: "brown",
-//     height: "5'9",
-//     weight: "165 lbs.",
-//     age: "old/young enough"
-// }
-//
-// console.log(meMyselfAndI);
-// console.log(meMyselfAndI.color);
-// console.log(meMyselfAndI.height);
-// console.log(meMyselfAndI.weight);
-// console.log(meMyselfAndI.age);
+const meMyselfAndI = {
+    color: "brown",
+    height: "5'9",
+    weight: "165 lbs.",
+    age: "old/young enough"
+}
+
+console.log(meMyselfAndI);
+console.log(meMyselfAndI.color);
+console.log(meMyselfAndI.height);
+console.log(meMyselfAndI.weight);
+console.log(meMyselfAndI.age);
 
 (function() {
     "use strict";
@@ -24,15 +24,18 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
-const person = {
+const meMyselfAndI = {
         firstName: "Donald",
         lastName: "Twitty",
-        sayHello: "says hello!"
+        // sayHello: "says hello!"
     };
 
-    console.log(person.firstName);
-    console.log(person.lastName);
+    console.log(meMyselfAndI.firstName);
+    console.log(meMyselfAndI.lastName);
 
+    meMyselfAndI.sayHello = function () {
+        return `Hello from ${this.firstName} ${this.lastName}`;
+    }
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -43,7 +46,7 @@ const person = {
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 
-    console.log(person.sayHello);
+    console.log(meMyselfAndI.sayHello);
 
 
 
@@ -69,7 +72,7 @@ const person = {
 
     shoppers.forEach((shopper) => {
         let discount = 0;
-        // check if the shopper spent more than $200 to apply the discount
+
         if (shopper.amount > 200) {
             discount = shopper.amount * 0.12;
         }
@@ -92,6 +95,8 @@ const person = {
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+
 
     /**
      * TODO:
