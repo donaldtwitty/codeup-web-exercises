@@ -16,21 +16,31 @@ p {
 }
 
 .message1 {
-    background-color: aqua;
+    background-color: rgb(205 222 255);
+    color: rgb(47 27 140);
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid gray;
 
 }
 
 .message2 {
-    background-color: palegreen;
-
+    background-color: rgb(207 243 218);
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid gray;
 }
 
 .message3 {
     background-color: yellow;
-
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid gray;
 }
 
 .message4 {
     background-color: palevioletred;
-
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid gray;
 }
