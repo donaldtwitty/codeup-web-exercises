@@ -12,7 +12,8 @@ body, html {
 }
 
 form {
-    border: 1em;
+    margin: 1em;
+    padding: 1em;
 
 
     /* This form should be separated from other elements by 1em */
@@ -42,17 +43,17 @@ fieldset {
     /* This element must use 100% of the width */
     /* It should have a separation of .5em from elements on top of it and below it*/
     width: 100%;
-    margin-bottom: 10px;
+    margin: .5em 0;
 }
 
 .form-label {
     /* The text of a label must be bold */
+    font-weight: bold;
 }
 
 .btn-block {
     /* This element should use 100% of the width */
     width: 100%;
-    padding: 10px;
 
 }
 
@@ -63,7 +64,9 @@ fieldset {
     background-color: #0fb784;
     color: white;
     font-weight: bold;
-    
+    padding: 8px;
+    border: 1px solid lightgray;
+
 }
 
 .form-control {
@@ -73,7 +76,9 @@ fieldset {
     /* You'll need to use the `calc` function to make the width of this element match the width of the button */
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
     /* HINT: Examples are available at: https://glitch.com/~input-button-width */
-    width: 100%;
+    padding: 4px 0;
+    margin: 0.5em 0;
+    width: calc(100% - 0px);
 }
 
 
