@@ -1,16 +1,20 @@
 * {
-    padding: 0;
-    margin: 0;
+    box-sizing: border-box;
 }
+
 
 body, html {
     height: 100%;
     width: 100%;
     background-color: #cbffcd;
     font-family: Arial, Ubuntu, sans-serif;
+
 }
 
 form {
+    border: 1em;
+
+
     /* This form should be separated from other elements by 1em */
     /* There must be 1em between the content and the border of this element */
 }
@@ -19,6 +23,9 @@ fieldset {
     -webkit-box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+    background-color: white;
+    border: unset;
+    padding: 1em;
     /* There must be 1em between the content and the border of this element */
     /* It should have no border */
     /* Its background should be white */
@@ -27,11 +34,15 @@ fieldset {
 .width-80 {
     /* The element with this class should be 80% of the width and it must be centered */
     /* Read how to center elements with margin here: http://learnlayout.com/margin-auto.html*/
+    width: 80%;
+    margin: auto;
 }
 
 .form-group {
     /* This element must use 100% of the width */
     /* It should have a separation of .5em from elements on top of it and below it*/
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .form-label {
@@ -40,6 +51,9 @@ fieldset {
 
 .btn-block {
     /* This element should use 100% of the width */
+    width: 100%;
+    padding: 10px;
+
 }
 
 .btn {
@@ -47,6 +61,9 @@ fieldset {
     /* The text color of this element should be white and bold */
     /* The border of this element should be 1px, and its color should be light grey */
     background-color: #0fb784;
+    color: white;
+    font-weight: bold;
+    
 }
 
 .form-control {
