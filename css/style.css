@@ -1,3 +1,15 @@
 .fancy-header {
     color: rebeccapurple;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 65px;
+}
+
+h2, h3 {
+    color: mediumpurple;
+    text-decoration: underline;
+}
+
+body {
+    background-image:url("/codeup-web-exercises/img/4907157.jpg");
 }
