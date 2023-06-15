@@ -57,7 +57,30 @@ display: flex;
     padding: 0 20px;
 }
 /* Combo classes to extend the row's versatility */
-
+.row.full-width {
+    max-width: unset;
+}
+.row.align-center {
+    align-items: center;
+}
+.row.align-top {
+    align-items: start;
+}
+.row.align-bottom {
+    align-items: end;
+}
+.row.justify-end {
+    justify-content: end;
+}
+.row.justify-space-between {
+    justify-content: space-between;
+}
+.row.no-padding {
+    padding: unset;
+}
+.row.grow {
+    flex: 1 0 0;
+}
 /*
     The "column" is a container element that vertically separates its
     children, which are usually content elements. When paired with sibling columns,
