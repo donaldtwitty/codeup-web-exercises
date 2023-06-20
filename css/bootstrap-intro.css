@@ -1,0 +1,9 @@
+.test-box {
+    width: 100px;
+    height: 100px;
+    background-color: darkred;
+}
+
+.background-size-cover {
+    background-size: cover;
+}
