@@ -1,3 +1,4 @@
+// ============================= WARM UP June 20, 2023
 // Write a function, returnUserObject, that takes in three String arguments: a username, password, and email. The function should return a user object with username, password and email properties.
 //
 // returnUserObject('jreich', 'password123', 'jreich@email.com') // returns...
@@ -21,7 +22,7 @@
 // console.log(returnUserObject('jreich', 'password123',  'jreich@email.com'));
 
 
-// ================================= WARM UP
+// ================================= WARM UP June 21, 2023
 // Create a function, returnProduct, that takes in an array of numbers and returns the product of all the numbers.
 //     Assume all element in the input array are valid numbers. Assume all array inputs have at least 1 number.
 // returnProduct([1, 2, 3]) // returns 1 * 2 * 3 = 6
