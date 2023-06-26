@@ -31,16 +31,63 @@
 // returnProduct([4, 0, 2]) // returns 4 * 0 * 2 = 0
 // returnProduct([5, 3, 2]) // returns 5 * 3 * 2 = 30
 
-function returnProduct(nums) {
-    let product = 1;
-    for (let num of nums) {
-        product *= num;
-    }
-    return product;
-}
+// function returnProduct(nums) {
+//     let product = 1;
+//     for (let num of nums) {
+//         product *= num;
+//     }
+//     return product;
+// }
+//
+// console.log(returnProduct([1, 2, 3]), 6); // returns 1 * 2 * 3 = 6
+// console.log(returnProduct([3, 3, 3]), 27); // returns 3 * 3 * 3 = 27
+// console.log(returnProduct([4, 1, 2]), 8); // returns 4 * 1 * 2 = 8
+// console.log(returnProduct([4, 0, 2]), 0); // returns 4 * 0 * 2 = 0
+// console.log(returnProduct([5, 3, 2]), 30); // returns 5 * 3 * 2 = 30
 
-console.log(returnProduct([1, 2, 3]), 6); // returns 1 * 2 * 3 = 6
-console.log(returnProduct([3, 3, 3]), 27); // returns 3 * 3 * 3 = 27
-console.log(returnProduct([4, 1, 2]), 8); // returns 4 * 1 * 2 = 8
-console.log(returnProduct([4, 0, 2]), 0); // returns 4 * 0 * 2 = 0
-console.log(returnProduct([5, 3, 2]), 30); // returns 5 * 3 * 2 = 30
+
+// ================================= WARM UP
+//
+// Create a function, returnTotalSales, that takes in an array of sales data objects and returns the sum of all
+// totalItemsSold properties. Assume all elements in the input array are valid sales data objects with a totalItemsSold
+// property.
+//
+//     EXAMPLE...
+
+// function returnTotalSales(salesDate){
+
+
+const salesData = [
+    { //index 0
+        month: 'January',
+        totalItemsSold: 0
+    },
+    { //index 1
+        month: 'February',
+        totalItemsSold: 5
+    },
+    { //index 2
+        month: 'March',
+        totalItemsSold: 2
+    },
+    { //index 3
+        month: 'April',
+        totalItemsSold: 10
+    },
+    { //index 4
+        month: 'May',
+        totalItemsSold: 30
+    }
+];
+
+const total = salesData[0].totalItemsSold +
+    salesData[1].totalItemsSold +
+    salesData[2].totalItemsSold +
+    salesData[3].totalItemsSold +
+    salesData[4].totalItemsSold;
+
+console.log(total);
+
+// returnTotalSales(salesData) // returns 47
+
+console.log(salesData[3].totalItemsSold);
