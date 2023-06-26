@@ -1,0 +1,21 @@
+.container-fluid.dt-hero {
+    min-height: 30vh;
+    background-image: url("../img/pizza02.webp");
+    background-position: center center;
+    background-size: cover;
+}
+
+li span {
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #6D6D6D;
+    color: black;
+}
+
+.form-check-inline {
+    margin-right: 0;
+}
