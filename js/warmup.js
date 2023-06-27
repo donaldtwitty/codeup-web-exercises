@@ -57,37 +57,81 @@
 // function returnTotalSales(salesDate){
 
 
+// const salesData = [
+//     { //index 0
+//         month: 'January',
+//         totalItemsSold: 0
+//     },
+//     { //index 1
+//         month: 'February',
+//         totalItemsSold: 5
+//     },
+//     { //index 2
+//         month: 'March',
+//         totalItemsSold: 2
+//     },
+//     { //index 3
+//         month: 'April',
+//         totalItemsSold: 10
+//     },
+//     { //index 4
+//         month: 'May',
+//         totalItemsSold: 30
+//     }
+// ];
+//
+// const total = salesData[0].totalItemsSold +
+//     salesData[1].totalItemsSold +
+//     salesData[2].totalItemsSold +
+//     salesData[3].totalItemsSold +
+//     salesData[4].totalItemsSold;
+//
+// console.log(total);
+//
+// // returnTotalSales(salesData) // returns 47
+//
+// console.log(salesData[3].totalItemsSold);
+
+
+// ================================= WARM UP
+//
+// Create a function, returnAvgSales, that takes in an array of sales data objects and returns the average of all
+// total items sold. Assume all elements in the input array are valid sales data objects with a totalItemsSold
+// property. If the array is empty, return 0. If the array has one element, return the value of the totalItemsSold.
+//
+function returnTotalSales(salesData) {
+    
+}
+
+//     EXAMPLE...
+function returnAvgSales(salesData) {
+    return returnTotalSales(salesData)/salesData.length;
+
+}
+
 const salesData = [
-    { //index 0
+    {
         month: 'January',
         totalItemsSold: 0
     },
-    { //index 1
+    {
         month: 'February',
         totalItemsSold: 5
     },
-    { //index 2
+    {
         month: 'March',
         totalItemsSold: 2
     },
-    { //index 3
+    {
         month: 'April',
         totalItemsSold: 10
     },
-    { //index 4
+    {
         month: 'May',
         totalItemsSold: 30
     }
 ];
 
-const total = salesData[0].totalItemsSold +
-    salesData[1].totalItemsSold +
-    salesData[2].totalItemsSold +
-    salesData[3].totalItemsSold +
-    salesData[4].totalItemsSold;
+returnAvgSales(salesData) // returns 9.4
 
-console.log(total);
-
-// returnTotalSales(salesData) // returns 47
-
-console.log(salesData[3].totalItemsSold);
+console.log(returnAvgSales(salesData), 9.4);
