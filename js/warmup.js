@@ -99,39 +99,111 @@
 // total items sold. Assume all elements in the input array are valid sales data objects with a totalItemsSold
 // property. If the array is empty, return 0. If the array has one element, return the value of the totalItemsSold.
 //
-function returnTotalSales(salesData) {
-    
-}
+// function returnTotalSales(salesData) {
+//
+// }
+//
+// //     EXAMPLE...
+// function returnAvgSales(salesData) {
+//     return returnTotalSales(salesData)/salesData.length;
+//
+// }
+//
+// const salesData = [
+//     {
+//         month: 'January',
+//         totalItemsSold: 0
+//     },
+//     {
+//         month: 'February',
+//         totalItemsSold: 5
+//     },
+//     {
+//         month: 'March',
+//         totalItemsSold: 2
+//     },
+//     {
+//         month: 'April',
+//         totalItemsSold: 10
+//     },
+//     {
+//         month: 'May',
+//         totalItemsSold: 30
+//     }
+// ];
+//
+// returnAvgSales(salesData) // returns 9.4
+//
+// console.log(returnAvgSales(salesData), 9.4);
 
-//     EXAMPLE...
-function returnAvgSales(salesData) {
-    return returnTotalSales(salesData)/salesData.length;
 
-}
+// ================================= WARM UP
+//
+// Create a function, returnAdmins, that takes in an array of user objects
+// and returns an array of only the admin user objects. Assume the array
+// has at least one user object and all elements have an isAdmin property.
+//
+//     Example:
 
-const salesData = [
-    {
-        month: 'January',
-        totalItemsSold: 0
-    },
-    {
-        month: 'February',
-        totalItemsSold: 5
-    },
-    {
-        month: 'March',
-        totalItemsSold: 2
-    },
-    {
-        month: 'April',
-        totalItemsSold: 10
-    },
-    {
-        month: 'May',
-        totalItemsSold: 30
+function returnAdmins(users) {
+    const admins = [];
+    for (let i = 0; i < users.length; i += 1){
+        if (users[i].isAdmin) {
+            admins.push(users[i].username);
+        }
     }
-];
+    return admins;
 
-returnAvgSales(salesData) // returns 9.4
+}
 
-console.log(returnAvgSales(salesData), 9.4);
+const users = [
+
+    {
+        username: 'fred123',
+        password: 'letmein',
+        email: 'fred123@email.com',
+        isAdmin: true
+    },
+    {
+        username: 'cindy123',
+        password: 'hello123',
+        email: 'cindy123@email.com',
+        isAdmin: false
+    },
+    {
+        username: 'kathy123',
+        password: 'letmein',
+        email: 'kathy123@email.com',
+        isAdmin: true
+    },
+    {
+        username: 'kyle123',
+        password: 'letmein',
+        email: 'kyle123@email.com',
+        isAdmin: false
+    }
+]
+
+console.log(returnAdmins(users),users);
+
+/*
+
+returnAdmins(users) returns...
+
+[
+
+    {
+        username: 'fred123',
+        password: 'letmein',
+        email: 'fred123@email.com',
+        isAdmin: true
+    },
+    {
+        username: 'kathy123',
+        password: 'letmein',
+        email: 'kathy123@email.com',
+        isAdmin: true
+    }
+]
+
+*/
