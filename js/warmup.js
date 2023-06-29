@@ -221,7 +221,7 @@ function neighborhoodObject(neighborhood) {
     // console.log(neighborhood.crimeRate);
     // console.log(neighborhood.schools);
 
-    const isRightPrice = neighborhood.medianHomePrice < 300000;
+    const isRightPrice = neighborhood.medianHomePrice < 300_000;
     const isRightCrimeRate = neighborhood.crimeRate === 'low';
     const isRightSchoolRating = neighborhood.schools >=24;
 
@@ -233,7 +233,7 @@ function neighborhoodObject(neighborhood) {
 
     const neighborhood1 = {
     neighborhood: "Lovely Estates",
-    medianHomePrice: 280000,
+    medianHomePrice: 280_000,
     pool: true,
     tennis: false,
     crimeRate: "low",
@@ -242,7 +242,7 @@ function neighborhoodObject(neighborhood) {
 
 const neighborhood2 = {
     neighborhood: "Luminous Estates",
-    medianHomePrice: 270000,
+    medianHomePrice: 270_000,
     pool: true,
     tennis: false,
     crimeRate: "high",
@@ -251,7 +251,7 @@ const neighborhood2 = {
 
 const neighborhood3 = {
     neighborhood: "Oak Mountain",
-    medianHomePrice: 290000,
+    medianHomePrice: 290_000,
     pool: false,
     tennis: false,
     crimeRate: "low",
@@ -260,7 +260,7 @@ const neighborhood3 = {
 
 const neighborhood4 = {
     neighborhood: "Ginormous Acres",
-    medianHomePrice: 350000,
+    medianHomePrice: 350_000,
     pool: true,
     tennis: true,
     crimeRate: "low",
