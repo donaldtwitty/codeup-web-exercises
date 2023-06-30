@@ -25,76 +25,64 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
-<button id="btn1">JavaScript Message!</button>
-<button id="btn2">Blue It Out!</button>
-<button id="btn3">Welcome!</button>
-<button id="btn4">Listening!</button>
+<button id="change-main-header-btn">Change Main Header</button>
+<button id="change-sub-header-btn">Change Sub-Header</button>
+<button id="change-list-btn">Change List</button>
+<button id="change-para-btn">Change Paragraph</button>
 
 <script>
     (function () {
         "use strict";
-        // TODO: Uncomment next line and get the main header element by id
-        const mainHeader = document.getElementById('main-header')
-        console.log(mainHeader);
 
-        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        // mainHeader.innerHTML = "JavaScript is Cool."
+        // variables...
 
-        // TODO: Uncomment the next line and get the sub header element by id
-        const subHeader = document.getElementById('sub-header')
-        console.log(subHeader);
+        const changeMainBtn = document.getElementById('change-main-header-btn');
+        const changeSubHeaderBtn = document.getElementById('change-sub-header-btn');
+        const changeListBtn = document.getElementById('change-list-btn');
+        const changeParaBtn = document.getElementById('change-para-btn');
 
-        // TODO: Set the text color of subHeader to blue
-        // document.getElementById("sub-header").style.color = "blue";
-        /*easier to read*/
-        // subHeader.style.color = "blue";
 
-        // TODO: Uncomment the next line and get all list items
-        const listItems = document.getElementsByTagName("li");
-        console.log(listItems);
+        // functions...
 
-        // TODO: Set text color on every other list item to grey
-        // TODO: Set text color of li with dbid = 1 to blue
-        for (let i = 0; i < listItems.length; i += 2) {
-            if (listItems[i].getAttribute('data-dbid') === '1') {
-                listItems[i].style.color = 'blue';
-                continue;
-            }
-            // if (i % 2 === 0) {
-            listItems[i].style.color = 'grey';
+        function changeMainHeader() {
+            const mainHeader = document.getElementById('main-header');
+            mainHeader.innerHTML = "JavaScript is Cool";
         }
-        // }
 
-        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        const subParagraphs = document.getElementsByClassName('sub-paragraph');
-        console.log(subParagraphs);
+        function changeSubHeader() {
+            const subHeader = document.getElementById('sub-header');
+            subHeader.style.color = 'blue';
+        }
 
-        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerText = 'Mission Accomplished!';
+        function changeList() {
+            const listItems = document.getElementsByTagName("li");
+            for (let i = 0; i < listItems.length; i += 1) {
+                if (i % 2 === 0) {
+                    listItems[i].style.color = 'grey';
+                }
+            }
+            document.querySelector('[data-dbid="1"]').style.color = 'blue';
+        }
 
-        // --------EXERCISE!!!--------
-        // Add 4 buttons to the page. Attach click event listeners to each of the buttons and have the handlers perform the modifications that were automatically taking place. For example, the first button should set inner html of mainHeader to "JavaScript is Cool".
+        function changePara() {
+            const subParagraphs = document.getElementsByClassName('sub-paragraph');
+            subParagraphs[0].innerText = 'Mission Accomplished!';
+        }
 
-        const bodyButton = document.getElementById('btn1');
-        bodyButton.addEventListener('click', function () {
-            mainHeader.innerHTML = "JavaScript is Cool."
-        });
+        // add event listeners...
 
-
-        const colorButton = document.getElementById("btn2");
-        colorButton.addEventListener('click', function () {
-            style.color = "blue"
-        });
-
-
-        const btn3 = document.getElementById('btn3');
-        btn3.addEventListener('click', listener);
-
-        const btn4 = document.getElementById('btn4');
-        btn4.addEventListener('click', listener);
-
+        changeMainBtn.addEventListener('click', changeMainHeader);
+        changeSubHeaderBtn.addEventListener('click', changeSubHeader);
+        changeListBtn.addEventListener('click', changeList);
+        changeParaBtn.addEventListener('click', changePara);
 
     })();
+
+    // ----- # Dom Events -----
+    // TODO 1. When a user hits the "g" key, the background of the page should turn purple.
+    // TODO 2. Every time the enter key is pressed, increment and display a counter that shows the total number of times the enter key has been pressed.
+    //TODO 3. When someone types 1, 2, 3 in a row, show an alert that says "You get a 50% discount!".
+
 </script>
 </body>
 </html>
