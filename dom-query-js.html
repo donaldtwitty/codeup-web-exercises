@@ -25,23 +25,29 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+<button id="btn1">JavaScript Message!</button>
+<button id="btn2">Blue It Out!</button>
+<button id="btn3">Welcome!</button>
+<button id="btn4">Listening!</button>
+
 <script>
-    (function() {
+    (function () {
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
         const mainHeader = document.getElementById('main-header')
         console.log(mainHeader);
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-            mainHeader.innerHTML = "JavaScript is Cool."
+        // mainHeader.innerHTML = "JavaScript is Cool."
 
         // TODO: Uncomment the next line and get the sub header element by id
         const subHeader = document.getElementById('sub-header')
         console.log(subHeader);
 
         // TODO: Set the text color of subHeader to blue
-        document.getElementById("sub-header").style.color = "blue";
-        /*easier to read*/ subHeader.style.color = "blue";
+        // document.getElementById("sub-header").style.color = "blue";
+        /*easier to read*/
+        // subHeader.style.color = "blue";
 
         // TODO: Uncomment the next line and get all list items
         const listItems = document.getElementsByTagName("li");
@@ -55,8 +61,8 @@
                 continue;
             }
             // if (i % 2 === 0) {
-                listItems[i].style.color = 'grey';
-            }
+            listItems[i].style.color = 'grey';
+        }
         // }
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
@@ -65,6 +71,28 @@
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
         subParagraphs[0].innerText = 'Mission Accomplished!';
+
+        // --------EXERCISE!!!--------
+        // Add 4 buttons to the page. Attach click event listeners to each of the buttons and have the handlers perform the modifications that were automatically taking place. For example, the first button should set inner html of mainHeader to "JavaScript is Cool".
+
+        const bodyButton = document.getElementById('btn1');
+        bodyButton.addEventListener('click', function () {
+            mainHeader.innerHTML = "JavaScript is Cool."
+        });
+
+
+        const colorButton = document.getElementById("btn2");
+        colorButton.addEventListener('click', function () {
+            style.color = "blue"
+        });
+
+
+        const btn3 = document.getElementById('btn3');
+        btn3.addEventListener('click', listener);
+
+        const btn4 = document.getElementById('btn4');
+        btn4.addEventListener('click', listener);
+
 
     })();
 </script>
