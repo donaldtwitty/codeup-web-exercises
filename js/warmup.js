@@ -216,59 +216,90 @@ returnAdmins(users) returns...
 
 // example data...
 
-function neighborhoodObject(neighborhood) {
-    // console.log(neighborhood.medianHomePrice);
-    // console.log(neighborhood.crimeRate);
-    // console.log(neighborhood.schools);
+// function neighborhoodObject(neighborhood) {
+//     // console.log(neighborhood.medianHomePrice);
+//     // console.log(neighborhood.crimeRate);
+//     // console.log(neighborhood.schools);
+//
+//     const isRightPrice = neighborhood.medianHomePrice < 300_000;
+//     const isRightCrimeRate = neighborhood.crimeRate === 'low';
+//     const isRightSchoolRating = neighborhood.schools >=24;
+//
+//     const isDesirable = isRightPrice && isRightCrimeRate && isRightSchoolRating;
+//
+//     return isDesirable;
+//
+// }
+//
+//     const neighborhood1 = {
+//     neighborhood: "Lovely Estates",
+//     medianHomePrice: 280_000,
+//     pool: true,
+//     tennis: false,
+//     crimeRate: "low",
+//     schools: 22
+// };
+//
+// const neighborhood2 = {
+//     neighborhood: "Luminous Estates",
+//     medianHomePrice: 270_000,
+//     pool: true,
+//     tennis: false,
+//     crimeRate: "high",
+//     schools: 24
+// }
+//
+// const neighborhood3 = {
+//     neighborhood: "Oak Mountain",
+//     medianHomePrice: 290_000,
+//     pool: false,
+//     tennis: false,
+//     crimeRate: "low",
+//     schools: 24
+// }
+//
+// const neighborhood4 = {
+//     neighborhood: "Ginormous Acres",
+//     medianHomePrice: 350_000,
+//     pool: true,
+//     tennis: true,
+//     crimeRate: "low",
+//     schools: 27
+// }
+//
+//
+// console.log(neighborhoodObject(neighborhood1), false);
+// console.log(neighborhoodObject(neighborhood2), false);
+// console.log(neighborhoodObject(neighborhood3), true);
+// console.log(neighborhoodObject(neighborhood4), false);
 
-    const isRightPrice = neighborhood.medianHomePrice < 300_000;
-    const isRightCrimeRate = neighborhood.crimeRate === 'low';
-    const isRightSchoolRating = neighborhood.schools >=24;
 
-    const isDesirable = isRightPrice && isRightCrimeRate && isRightSchoolRating;
+// ================================= WARM UP
 
-    return isDesirable;
+
+// Write a function, returnLargestStudentCount, that takes in an array of classes returns the number of students in the largest class.
+// Assume at least one class object will be present in the input array with students property set to a valid positive integer.
+
+function returnLargestStudentCount () {
 
 }
 
-    const neighborhood1 = {
-    neighborhood: "Lovely Estates",
-    medianHomePrice: 280_000,
-    pool: true,
-    tennis: false,
-    crimeRate: "low",
-    schools: 22
-};
+    let classes = [
+    {class: "6th grade history", students: 18},
+    {class: "7th grade history", students: 20},
+    {class: "8th grade history", students: 22},
+    {class: "4th grade history", students: 30},
+    {class: "10th grade history", students: 25}
+];
 
-const neighborhood2 = {
-    neighborhood: "Luminous Estates",
-    medianHomePrice: 270_000,
-    pool: true,
-    tennis: false,
-    crimeRate: "high",
-    schools: 24
+let highestStudentCount = 0;
+for (let i = 0; i < classes.length; i += 1) {
+    if (highestStudentCount < classes[i].students){
+        highestStudentCount = classes[i].students;
+    }
+    // console.log(classes[i].students);
 }
 
-const neighborhood3 = {
-    neighborhood: "Oak Mountain",
-    medianHomePrice: 290_000,
-    pool: false,
-    tennis: false,
-    crimeRate: "low",
-    schools: 24
-}
+returnLargestStudentCount(classes) // returns 30
 
-const neighborhood4 = {
-    neighborhood: "Ginormous Acres",
-    medianHomePrice: 350_000,
-    pool: true,
-    tennis: true,
-    crimeRate: "low",
-    schools: 27
-}
-
-
-console.log(neighborhoodObject(neighborhood1), false);
-console.log(neighborhoodObject(neighborhood2), false);
-console.log(neighborhoodObject(neighborhood3), true);
-console.log(neighborhoodObject(neighborhood4), false);
+console.log(highestStudentCount);
