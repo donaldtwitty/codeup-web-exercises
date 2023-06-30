@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM Bonus</title>
+</head>
+<body>
+<h1 style="color:midnightblue;">
+    GeeksforGeeks
+</h1>
+
+<p id="GFG_UP" style="font-size: 16px;
+                          font-weight: bold;">
+</p>
+
+<button onclick="gfg_Run()">
+    Click here
+</button>
+
+<p id="GFG_DOWN" style="color:midnightblue;
+                            font-size: 20px;
+                            font-weight: bold;">
+</p>
+
+<script>
+    let el_up = document.getElementById("GFG_UP");
+    let el_down = document.getElementById("GFG_DOWN");
+    let str = "Click on button to change the background color";
+
+    el_up.innerHTML = str;
+
+    function changeColor(color) {
+        document.body.style.background = color;
+    }
+
+    function gfg_Run() {
+        changeColor('rebeccapurple');
+        el_down.innerHTML = "Background Color changed";
+    }
+</script>
+</body>
+</html>
