@@ -280,26 +280,76 @@ returnAdmins(users) returns...
 // Write a function, returnLargestStudentCount, that takes in an array of classes returns the number of students in the largest class.
 // Assume at least one class object will be present in the input array with students property set to a valid positive integer.
 
-function returnLargestStudentCount () {
+// function returnLargestStudentCount () {
+//
+// }
+//
+//     let classes = [
+//     {class: "6th grade history", students: 18},
+//     {class: "7th grade history", students: 20},
+//     {class: "8th grade history", students: 22},
+//     {class: "4th grade history", students: 30},
+//     {class: "10th grade history", students: 25}
+// ];
+//
+// let highestStudentCount = 0;
+// for (let i = 0; i < classes.length; i += 1) {
+//     if (highestStudentCount < classes[i].students){
+//         highestStudentCount = classes[i].students;
+//     }
+//     // console.log(classes[i].students);
+// }
+//
+// returnLargestStudentCount(classes) // returns 30
+//
+// console.log(highestStudentCount);
 
-}
+// ----- Warm Up July 5th -----
+// 1. Create a function that prints 1 to 100.
 
-    let classes = [
-    {class: "6th grade history", students: 18},
-    {class: "7th grade history", students: 20},
-    {class: "8th grade history", students: 22},
-    {class: "4th grade history", students: 30},
-    {class: "10th grade history", students: 25}
-];
+// let i
+// for (i = 1; i <= 100; i += 1) {
+//     console.log(1);
+// }
 
-let highestStudentCount = 0;
-for (let i = 0; i < classes.length; i += 1) {
-    if (highestStudentCount < classes[i].students){
-        highestStudentCount = classes[i].students;
+
+// 2. Create a function, fizzBuzz, that prints out all numbers from 1 to 100 but instead of printing
+// numbers that are evenly divisible by 3, print 'fizz' and any numbers evenly divisible
+// by 5, print 'buzz'. For any numbers that are evenly divisible by 3 AND 5, print 'fizzbuzz'.
+
+function fizzBuzz() {
+    for (let i = 1; i <= 100; i += 1) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('fizzbuzz');
+        } else if (i % 5 === 0) {
+            console.log('buzz');
+        } else if (i % 3 === 0) {
+            console.log('fizz');
+        } else {
+            console.log(i);
+        }
     }
-    // console.log(classes[i].students);
 }
 
-returnLargestStudentCount(classes) // returns 30
 
-console.log(highestStudentCount);
+
+fizzBuzz() // prints...
+/*
+1
+2
+'fizz'
+4
+'buzz'
+'fizz'
+7
+8
+'fizz'
+'buzz'
+11
+'fizz'
+13
+14
+'fizzbuzz'
+etc...
+
+*/
