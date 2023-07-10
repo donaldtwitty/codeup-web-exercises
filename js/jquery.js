@@ -17,6 +17,9 @@ function checkKonamiCode(event) {
             document.body.appendChild(imgElement);
             const h1Element = document.querySelector("h1");
             h1Element.textContent = "Git In There!!!";
+            const music = new Audio("../vid/Git-In-There.mp4");
+            music.loop = true;
+            music.play();
             konami_index = 0;
         }
     } else {
