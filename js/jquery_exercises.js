@@ -1,5 +1,5 @@
 "use strict"
-/*Preferred Method
+/* ----- Preferred Method - Using On -----
 $('h1').on('click', (e) => {
         $(e.target).css('background', 'rebeccapurple');
 }); */
