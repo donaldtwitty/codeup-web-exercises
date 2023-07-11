@@ -332,7 +332,6 @@ returnAdmins(users) returns...
 // }
 
 
-
 // fizzBuzz() // prints...
 /*
 1
@@ -355,8 +354,7 @@ etc...
 */
 
 
-
-
+// ----- Warmup July 10, 2023 ----- //
 // You are given an array of runner objects, where each object represents a
 // runner with properties name, age, and lapTimes (in seconds). Write a
 // function called getTopRunners that takes the runners array as input and
@@ -383,28 +381,87 @@ function getTopRunners(runnersArray){
 */
 
 // Input:
-const runners = [
-    { name: "Alice", age: 25, lapTimes: [50.5, 45.2, 48.8, 47.1] },
-    { name: "Bob", age: 28, lapTimes: [55.2, 50.7, 53.3, 52.9] },
-    { name: "Charlie", age: 24, lapTimes: [48.9, 46.3, 50.1, 49.5] },
-    { name: "David", age: 27, lapTimes: [51.4, 50.2, 49.8, 52.3] },
-    { name: "Eve", age: 26, lapTimes: [47.7, 45.9, 46.6, 48.3] },
-];
-function getTopRunners(runnersArray) {
-    let topRunners = [];
+// const runners = [
+//     { name: "Alice", age: 25, lapTimes: [50.5, 45.2, 48.8, 47.1] },
+//     { name: "Bob", age: 28, lapTimes: [55.2, 50.7, 53.3, 52.9] },
+//     { name: "Charlie", age: 24, lapTimes: [48.9, 46.3, 50.1, 49.5] },
+//     { name: "David", age: 27, lapTimes: [51.4, 50.2, 49.8, 52.3] },
+//     { name: "Eve", age: 26, lapTimes: [47.7, 45.9, 46.6, 48.3] },
+// ];
+// function getTopRunners(runnersArray) {
+//     let topRunners = [];
+//
+//     for(let runner of runnersArray) {
+//         if (calculateLapTimeAverage(runner.lapTimes) <= 50){
+//             topRunners.push(runner);
+//         }
+//     }
+//
+//     return topRunners;
+// }
+//
+// function calculateLapTimeAverage(lapTimesArray) {
+//     let total = 0;
+//     let count = 0;
+//     for (let lapTime of lapTimesArray) {
+//         total += lapTime;
+//         count++;
+//     }
+//
+//     return total / count;
+// }
+//
+// console.log(getTopRunners(runners));
+//
+// // Expected Output:
+// [
+//     { name: 'Alice', age: 25, lapTimes: [50.5, 45.2, 48.8, 47.1] },
+//     { name: 'Charlie', age: 24, lapTimes: [48.9, 46.3, 50.1, 49.5] },
+//     { name: 'Eve', age: 26, lapTimes: [47.7, 45.9, 46.6, 48.3] }
+// ]
+//
+//
+//
+// // BONUS: Each runner in the resulting array should be represented as an
+// // object containing only the name and age properties.
+//
+//
+// // Expected Bonus Output:
+//     [
+//     { name: "Alice", age: 18 },
+//         { name: "Charlie", age: 19 },
+//         { name: "Eve", age: 17 }
+//     ]
 
-    for(let runner of runnersArray) {
-        if (calculateLapTimeAverage(runner.lapTimes) <= 50){
-            topRunners.push(runner);
+// ----- Warmup July 11, 2023 ----- //
+// TODO Refactor your code from yesterday's warmup to return just the top runner
+
+const runners = [
+    {name: "Alice", age: 25, lapTimes: [50.5, 45.2, 48.8, 47.1]},
+    {name: "Bob", age: 28, lapTimes: [55.2, 50.7, 53.3, 52.9]},
+    {name: "Charlie", age: 24, lapTimes: [48.9, 46.3, 50.1, 49.5]},
+    {name: "David", age: 27, lapTimes: [51.4, 50.2, 49.8, 52.3]},
+    {name: "Eve", age: 26, lapTimes: [47.7, 45.9, 46.6, 48.3]},
+];
+
+function getTopRunner(runnersArray) {
+    let topRunner = null;
+    let fastestTime = Infinity;
+
+    for (let runner of runnersArray) {
+        let avgLapTime = calculateLapTimeAverage(runner.lapTimes);
+        if (avgLapTime < fastestTime) {
+            topRunner = runner;
+            fastestTime = avgLapTime;
         }
     }
-
-    return topRunners;
+    return topRunner;
 }
 
 function calculateLapTimeAverage(lapTimesArray) {
     let total = 0;
     let count = 0;
+
     for (let lapTime of lapTimesArray) {
         total += lapTime;
         count++;
@@ -413,24 +470,7 @@ function calculateLapTimeAverage(lapTimesArray) {
     return total / count;
 }
 
-console.log(getTopRunners(runners));
+console.log(getTopRunner(runners));
 
-// Expected Output:
-[
-    { name: 'Alice', age: 25, lapTimes: [50.5, 45.2, 48.8, 47.1] },
-    { name: 'Charlie', age: 24, lapTimes: [48.9, 46.3, 50.1, 49.5] },
-    { name: 'Eve', age: 26, lapTimes: [47.7, 45.9, 46.6, 48.3] }
-]
-
-
-
-// BONUS: Each runner in the resulting array should be represented as an
-// object containing only the name and age properties.
-
-
-// Expected Bonus Output:
-    [
-    { name: "Alice", age: 18 },
-        { name: "Charlie", age: 19 },
-        { name: "Eve", age: 17 }
-    ]
+// Expected output:
+// { name: 'Eve', age: 26, lapTimes: [47.7, 45.9, 46.6, 48.3] }
