@@ -4,6 +4,8 @@
     <title>Online Store</title>
 </head>
 <body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
 <h1>My Tool Store</h1>
 
@@ -26,18 +28,43 @@
 
 <script>
     (function () {
-        "use strict";
-        // TODO: Create an AJAX GET request for the file under data/inventory.json
-        $.ajax("data/inventory.json").done((tools) => {
-            console.log(tools);
-        })
+        const tableBody = document.querySelector('#insertProducts');
 
-        // TODO: Take the data from inventory.json and append it to the products table
-        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-        //             its contents and fields
-        //       HINT: You will want to target #insertProducts for your new HTML elements
+        function refresh() {
+
+            "use strict";
+
+            // TODO: Create an AJAX GET request for the file under data/inventory.json
+            $.ajax("data/inventory.json").done((tools) => {
+                console.log(tools);
+
+
+                // TODO: Take the data from inventory.json and append it to the products table
+                //HINT: Your data should come back as a JSON object; use console.log() to inspect its contents and fields
+                //HINT: You will want to target #insertProducts for your new HTML elements
+
+                tableBody.innerHTML = "";
+                for (let tool of tools) {
+                    let row = document.createElement('tr');
+                    row.innerHTML = `
+                <td>${tool.title}</td>
+                <td>${tool.quantity}</td>
+                <td>$${tool.price}</td>
+                <td>${tool.categories.join(", ")}</td>
+            `;
+                    tableBody.appendChild(row)
+                }
+            })
+        }
+        refresh();
+        let refreshButton = document.querySelector("#refresh-btn");
+        refreshButton.addEventListener("click", refresh)
     })();
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
