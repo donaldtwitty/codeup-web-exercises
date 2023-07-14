@@ -739,19 +739,26 @@ function getTopRunners(runnersArray){
 // Input: [62, 3, 2, 8, 531, 7]
 // Expected Output: [3, 531, 7]
 
+// function removeEvens(inputArray) {
+//     //declare a new array that will hold all the odd numbers
+//     const oddNumbers = [];
+//     // loop through inputArray
+//     for (const number of inputArray) {
+//         //in the loop, check to see if our item is even or odd
+//         if (number % 2 !== 0) {
+//             // if odd add to our new array
+//             oddNumbers.push(number);
+//         }
+//     }
+// // after the loop, return our new array holding the odd numbers
+//     return oddNumbers;
+// }
+//
+// console.log(removeEvens([1, 3, 2, 13, 74, 33]));
+//
+
 function removeEvens(inputArray) {
-    //declare a new array that will hold all the odd numbers
-    const oddNumbers = [];
-    // loop through inputArray
-    for (const number of inputArray) {
-        //in the loop, check to see if our item is even or odd
-        if (number % 2 !== 0) {
-            // if odd add to our new array
-            oddNumbers.push(number);
-        }
-    }
-// after the loop, return our new array holding the odd numbers
-    return oddNumbers;
+    return inputArray.filter((number) => number % 2 !== 0)
 }
 
-console.log(removeEvens([1, 3, 2, 13, 74, 33]));
+console.log(removeEvens([62, 3, 2, 8, 531, 7]));
