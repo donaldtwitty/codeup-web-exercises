@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Open Weather Forecast API Example</title>
+    <meta charset="UTF-8">
+    <title>Open Weather Forecast API Example</title>
 </head>
 <body>
 
@@ -23,73 +23,75 @@
 
 <!-- additional code here -->
 <script>
-  "use strict";
+    "use strict";
 
-  // Base URL for forecast API
-  const OPEN_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/forecast';
+    // Base URL for forecast API
+    const OPEN_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/forecast';
 
-  // Simple way to create URL for request based on coordinates
-  function getWeatherURL(lat, lon) {
-    return `${OPEN_WEATHER_URL}?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_APPID}`;
-  }
+    // Simple way to create URL for request based on coordinates
+    function getWeatherURL(lat, lon) {
+        return `${OPEN_WEATHER_URL}?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_APPID}`;
+    }
 
-  const ALAMO_COORDINATES = ['29.4260', '-98.4861'];
+    const ALAMO_COORDINATES = ['29.4260', '-98.4861'];
 
-  // TODO: log URL
+    // TODO: log URL
 
-  // console.log(getWeatherURL(ALAMO_COORDINATES[0], ALAMO_COORDINATES[1]));
+    console.log(getWeatherURL(ALAMO_COORDINATES[0], ALAMO_COORDINATES[1]));
 
-  const URL = getWeatherURL(...ALAMO_COORDINATES);
+    const URL = getWeatherURL(...ALAMO_COORDINATES);
 
-  // TODO: log full response from API
+    // TODO: log full response from API
 
-  $.ajax(URL).done(data => {
-    console.log(data);
-  }).fail(console.error);
-
-
-  // TODO: log various parts of the API
-
-  // $.ajax(URL).done(data => {
-  //     console.log(data);
-  //     // TODO: log the city name
-  //     // TODO: log the first three-hour forecast block
-  //     // TODO: log the humidity for the first three-hour block
-  // }).fail(console.error);
+    $.ajax(URL).done(data => {
+        console.log(data);
+    }).fail(console.error);
 
 
-  // TODO: log the humidity for all days
+    // TODO: log various parts of the API
 
-  // $.ajax(getWeatherURL(...ALAMO_COORDINATES))
-  //     .done((data) => {
-  //
-  //         data.list.forEach((day, index) => {
-  //             if (index % 8 === 0) {
-  //                 console.log(day.main.humidity);
-  //             }
-  //         });
-  //
-  //         // OR
-  //
-  //         for (let i = 0; i < data.list.length; i += 8) {
-  //             console.log(data.list[i].main.humidity);
-  //         }
-  //
-  //     })
-  //     .fail(console.error);
+    $.ajax(URL).done(data => {
+        console.log(data.city.name);
+        console.log(data.list[0]);
+        console.log(data.list[0].main.humidity);
+        //     // TODO: log the city name
+        //     // TODO: log the first three-hour forecast block
+        //     // TODO: log the humidity for the first three-hour block
+    }).fail(console.error);
 
 
-  // TODO: log the min and max temp for each day
+    // TODO: log the humidity for all days
 
-  // $.ajax(getWeatherURL(...ALAMO_COORDINATES))
-  //     .done(data => {
-  //         console.log(data);
-  //         const minMaxTemps = returnMinMaxTemps(data);
-  //         minMaxTemps.forEach(minMaxTemp => {
-  //             console.log(minMaxTemp);
-  //         });
-  //     })
-  //     .fail(console.error);
+    $.ajax(getWeatherURL(...ALAMO_COORDINATES))
+        .done((data) => {
+
+            data.list.forEach((day, index) => {
+                if (index % 8 === 0) {
+                    console.log(day.main.humidity);
+                }
+            });
+    //
+    //         // OR
+    //
+    //         for (let i = 0; i < data.list.length; i += 8) {
+    //             console.log(data.list[i].main.humidity);
+    //         }
+    //
+        })
+        .fail(console.error);
+
+
+    // TODO: log the min and max temp for each day
+
+    $.ajax(getWeatherURL(...ALAMO_COORDINATES))
+        .done(data => {
+            console.log(data);
+            const minMaxTemps = returnMinMaxTemps(data);
+            minMaxTemps.forEach(minMaxTemp => {
+                console.log(minMaxTemp);
+            });
+        })
+        .fail(console.error);
 
 </script>
 </body>
