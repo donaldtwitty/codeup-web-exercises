@@ -38,12 +38,33 @@ function returnMinMaxTemps({list}) {
     return minMaxTempDays;
 }
 
-/*
-    EXAMPLE OF USAGE:
 
-    $.get(OPEN_WEATHER_API_URL)).done(data => {
-            const minMaxTemps = returnMinMaxTemps(data);
-            // use minMaxTemps data as needed
-     });
+// EXAMPLE OF USAGE: //
 
- */
+$.get(getWeatherURL(...ALAMO_COORDINATES))
+    .done(data => {
+        const minMaxTemps = returnMinMaxTemps(data);
+        // use minMaxTemps data as needed
+
+        const cityElement = document.querySelector('#city');
+        const tempElement = document.querySelector('#temp');
+        const descElement = document.querySelector('#desc');
+        cityElement.textContent = data.name;
+        tempElement.textContent = data.main.temp;
+        descElement.textContent = data.weather[0].description;
+    })
+    .fail(console.error);
+
+$.get(OPEN_WEATHER_APPID)
+    .done(data => {
+    })
+    .then(data => {
+        // Display the weather information on the page
+        const temperature = data.main.temp;
+        const description = data.weather[0].description;
+        const temperatureEl = document.getElementById('temperature');
+        temperatureEl.innerHTML = `${temperature} &deg;C`;
+        const descriptionEl = document.getElementById('description');
+        descriptionEl.innerHTML = description;
+    });
+

@@ -3,34 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Open Weather Forecast API Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
 
-<h1>Open Weather API Examples</h1>
-<p>See console...</p>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Weather Map</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <form class="d-flex" id="search-form" role="search">
+                <input id="location-input" class="form-control me-2" type="search" placeholder="Location" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Find</button>
+            </form>
+        </div>
+    </div>
+</nav>
 
-<!-- used to import minMaxTemps function -->
-<script src="js/min-max-temps.js"></script>
+
+<h1>Open Weather API Examples</h1>
+
+<div id="temperature"></div>
+<div id="description"></div>
 
 <!-- include jQuery -->
-<script
-        src="https://code.jquery.com/jquery-2.2.4.min.js"
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
 <!-- include API key file -->
 <script src="js/keys.js"></script>
 
-<!-- additional code here -->
 <script>
-    "use strict";
 
+    <!-- additional code here -->
+    "use strict";
     // Base URL for forecast API
     const OPEN_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/forecast';
 
     // Simple way to create URL for request based on coordinates
-    function getWeatherURL(lat, lon) {
-        return `${OPEN_WEATHER_URL}?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_APPID}`;
+    // function getWeatherURL(lat, lon) {
+    //     return `${OPEN_WEATHER_URL}?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_APPID}`;
+    // }
+
+    function getWeatherURL(lat, lon, query = '') {
+        const searchQuery = query ? `&q=${query}` : '';
+        return `${OPEN_WEATHER_URL}?lat=${lat}&lon=${lon}${searchQuery}&units=metric&appid=${OPEN_WEATHER_APPID}`;
     }
 
     const ALAMO_COORDINATES = ['29.4260', '-98.4861'];
@@ -70,13 +91,13 @@
                     console.log(day.main.humidity);
                 }
             });
-    //
-    //         // OR
-    //
-    //         for (let i = 0; i < data.list.length; i += 8) {
-    //             console.log(data.list[i].main.humidity);
-    //         }
-    //
+            //
+            //         // OR
+            //
+            //         for (let i = 0; i < data.list.length; i += 8) {
+            //             console.log(data.list[i].main.humidity);
+            //         }
+            //
         })
         .fail(console.error);
 
@@ -93,6 +114,26 @@
         })
         .fail(console.error);
 
+    // Search form submission
+    $('#search-form').submit(e => {
+        e.preventDefault();
+        const locationInput = $('#location-input').val();
+        const searchUrl = getWeatherURL(0, 0, locationInput);
+        // Make AJAX request to search URL
+        $.ajax(searchUrl).done(data => {
+            // Handle search results
+        }).fail(console.error);
+    });
+
 </script>
+
+<script src="js/min-max-temps.js"></script>
+
+<!-- used to import minMaxTemps function -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>
