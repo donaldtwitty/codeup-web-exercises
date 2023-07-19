@@ -13,7 +13,9 @@ const map = new mapboxgl.Map({
     center: [-74.5, 40], // starting position [lng, lat]
     zoom: 9, // starting zoom
 });
-
+const marker = new mapboxgl.Marker({
+    draggable: true
+}).setLngLat(coords).addTo(map);
 
 <!-- Notification for Current Location -->
 function showCurrentLocationOnMap() {
@@ -22,7 +24,7 @@ function showCurrentLocationOnMap() {
             (position) => {
                 const {latitude, longitude} = position.coords;
                 map.setCenter([longitude, latitude]);
-                const marker = new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map);
+
             },
             (error) => {
                 console.error("Error getting current location:", error);
@@ -66,9 +68,9 @@ function makeHTML(data) {
         const temp = `${data.list[i].main.temp}&#x2109;`;
         const condition = data.list[i].weather[0].description;
         const humidity = `${data.list[i].main.humidity}%`;
-        const dayOfWeek = new Date(data.list[i].dt * 1000).toLocaleDateString('en-US', { weekday: 'long' });
+        const dayOfWeek = new Date(data.list[i].dt * 1000).toLocaleDateString('en-US', {weekday: 'long'});
         html += `
-<div class="card text-center" style="width: 25rem">
+<div class="text-center" style="width: 25rem">
     <div><img src="${iconUrl}"</div>
     <div>${dayOfWeek}</div>
     <div>Temperature: ${data.list[i].main.temp} &#x2109;</div>
@@ -81,15 +83,16 @@ function makeHTML(data) {
 }
 
 function updateWeatherForLocation(locationInput) {
+    console.log(locationInput);
     $.ajax(`https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=${OPEN_WEATHER_APPID}&units=imperial`)
         .done((data) => {
             console.log(data);
             // Update map's center and marker
             map.setCenter([data.coord.lon, data.coord.lat]);
-            const marker = new mapboxgl.Marker().setLngLat([data.coord.lon, data.coord.lat]).addTo(map);
 
             // Call fiveDay function to update weather info
             coords = {lat: data.coord.lat, lng: data.coord.lon};
+            marker.setLngLat(coords);
             fiveDay(coords);
         })
         .fail(console.error);
@@ -101,6 +104,11 @@ $("#search-form").click((e) => {
     const locationInput = $("#location-input").val();
     updateWeatherForLocation(locationInput);
 });
+
+marker.on('dragend', function () {
+    console.log(marker.getLngLat())
+    fiveDay(marker.getLngLat())
+})
 
 fetch(`https://api.openweathermap.org/data/2.5/weather?q={city name}&appid=${OPEN_WEATHER_APPID}`)
     .then(response => response.json())
