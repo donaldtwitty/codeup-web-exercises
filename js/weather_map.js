@@ -31,7 +31,6 @@ function showCurrentLocationOnMap() {
         console.error("Geolocation is not available in this browser.");
     }
 }
-
 // Call the function to show the current location on the map
 showCurrentLocationOnMap();
 
@@ -55,6 +54,7 @@ function fiveDay(coords) {
 
 }
 
+<!-- Weather Info -->
 function makeHTML (data){
 let html = `
 
@@ -69,15 +69,13 @@ let html = `
     </div>
     `
     }
-
-
     return html
 }
 
 $("#search-form").submit((e) => {
     e.preventDefault();
     const locationInput = $("#location-input").val();
-    const searchUrl = OPEN_WEATHER_APPID(0, 0, locationInput);
+    const searchUrl = getWeatherURL(0, 0, locationInput);
     $.ajax(searchUrl).done((data) => {
         console.log(data);
         weatherInfoOnPage(data);
@@ -85,37 +83,3 @@ $("#search-form").submit((e) => {
 
 });
 
-const cityElement = document.querySelector("#city");
-const tempElement = document.querySelector("#temp");
-const descElement = document.querySelector("#desc");
-const minMaxTempElement = document.querySelector("#min-max-temp");
-// TO MAKE THE MAP APPEAR YOU MUST
-// ADD YOUR ACCESS TOKEN FROM
-
-// https://account.mapbox.com
-
-
-// function returnMinMaxTemps({ list }) {
-//     const minMaxTempDays = [];
-//
-//     list.forEach(({ dt_txt, main: { temp_max, temp_min } }) => {
-//         const [date, time] = dt_txt.split(" ");
-//
-//         if (minMaxTempDays.length === 0 || time.startsWith("00")) {
-//             minMaxTempDays.push({ date, min: temp_min, max: temp_max });
-//         } else {
-//             const currentMinMaxTemp = minMaxTempDays[minMaxTempDays.length - 1];
-//             const { min, max } = currentMinMaxTemp;
-//
-//             if (min > temp_min) {
-//                 currentMinMaxTemp.min = temp_min;
-//             }
-//
-//             if (max < temp_max) {
-//                 currentMinMaxTemp.max = temp_max;
-//             }
-//         }
-//     });
-//
-//     return minMaxTempDays;
-// }

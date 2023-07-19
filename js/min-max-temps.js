@@ -25,7 +25,7 @@ function returnMinMaxTemps({list}) {
     list.forEach(({dt_txt, main: {temp_max, temp_min}}) => {
         const [date, time] = dt_txt.split(' '); // splits the date time string
         if (minMaxTempDays.length === 0 || time.startsWith('00')) { // add a new forecast day for each new date
-            minMaxTempDays.push({date, min: temp_min, max: temp_max});
+            // minMaxTempDays.push({date, min: temp_min, max: temp_max});
         } else {
             // replace the current days min and max temps if a higher max or lower min is found throughout the day
             const currentMinMaxTemp = minMaxTempDays[minMaxTempDays.length - 1];
