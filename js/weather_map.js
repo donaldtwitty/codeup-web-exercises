@@ -67,7 +67,7 @@ function makeHTML(data) {
         const condition = data.list[i].weather[0].description;
         const humidity = `${data.list[i].main.humidity}%`;
         html += `
-<div class="card text-center" style="width: 18rem">
+<div class="card text-center" style="width: 25rem">
     <div><img src="${iconUrl}"</div>
     <div>temp: ${data.list[i].main.temp} &#x2109;</div>
     <div>condition: ${data.list[0].weather[0].description}</div>

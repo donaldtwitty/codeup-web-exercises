@@ -1,0 +1,12 @@
+#map {
+    width: 75%;
+    height: 600px;
+    float: right;
+    border: 2px solid dodgerblue;
+}
+
+.card {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+}
