@@ -2,11 +2,11 @@
 let lat = 29.424349;
 let lng = -98.491142;
 
-let coords = {lat:lat, lng:lng}
+let coords = {lat: lat, lng: lng}
 
 fiveDay(coords);
 
-mapboxgl.accessToken=MAPBOX_TOKEN;
+mapboxgl.accessToken = MAPBOX_TOKEN;
 const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
@@ -15,13 +15,12 @@ const map = new mapboxgl.Map({
 });
 
 
-
 <!-- Notification for Current Location -->
 function showCurrentLocationOnMap() {
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                const { latitude, longitude } = position.coords;
+                const {latitude, longitude} = position.coords;
                 map.setCenter([longitude, latitude]);
                 const marker = new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map);
             },
@@ -33,6 +32,7 @@ function showCurrentLocationOnMap() {
         console.error("Geolocation is not available in this browser.");
     }
 }
+
 // Call the function to show the current location on the map
 showCurrentLocationOnMap();
 
@@ -57,17 +57,17 @@ function fiveDay(coords) {
 }
 
 <!-- Weather Info in 5-Day Forecast -->
-function makeHTML (data){
-let html = `
+function makeHTML(data) {
+    let html = `
 
-<h3>${data.city.name}</h3>`
-    for (let i = 0; i < data.list.length; i+=8) {
+<h3 class="text-center">${data.city.name}</h3>`
+    for (let i = 0; i < data.list.length; i += 8) {
         const iconUrl = `http://openweathermap.org/img/wn/${data.list[i].weather[0].icon}.png`;
         const temp = `${data.list[i].main.temp}&#x2109;`;
         const condition = data.list[i].weather[0].description;
         const humidity = `${data.list[i].main.humidity}%`;
-        html+=`
-<div class="card">
+        html += `
+<div class="card text-center" style="width: 18rem">
     <div><img src="${iconUrl}"</div>
     <div>temp: ${data.list[i].main.temp} &#x2109;</div>
     <div>condition: ${data.list[0].weather[0].description}</div>
@@ -87,11 +87,12 @@ function updateWeatherForLocation(locationInput) {
             const marker = new mapboxgl.Marker().setLngLat([data.coord.lon, data.coord.lat]).addTo(map);
 
             // Call fiveDay function to update weather info
-            coords = { lat: data.coord.lat, lng: data.coord.lon };
+            coords = {lat: data.coord.lat, lng: data.coord.lon};
             fiveDay(coords);
         })
         .fail(console.error);
 }
+
 $("#search-form").click((e) => {
     e.preventDefault();
     const locationInput = $("#location-input").val();
