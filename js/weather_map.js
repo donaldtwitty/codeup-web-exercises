@@ -62,9 +62,13 @@ let html = `
 
 <h3>${data.city.name}</h3>`
     for (let i = 0; i < data.list.length; i+=8) {
+        const iconUrl = `http://openweathermap.org/img/wn/${data.list[i].weather[0].icon}.png`;
+        const temp = `${data.list[i].main.temp}&#x2109;`;
+        const condition = data.list[i].weather[0].description;
+        const humidity = `${data.list[i].main.humidity}%`;
         html+=`
 <div class="card">
-    <div>icon</div>
+    <div><img src="${iconUrl}"</div>
     <div>temp: ${data.list[i].main.temp} &#x2109;</div>
     <div>condition: ${data.list[0].weather[0].description}</div>
     <div>humidity: ${data.list[i].main.humidity}%</div>
