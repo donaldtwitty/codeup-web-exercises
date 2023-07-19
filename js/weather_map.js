@@ -66,12 +66,14 @@ function makeHTML(data) {
         const temp = `${data.list[i].main.temp}&#x2109;`;
         const condition = data.list[i].weather[0].description;
         const humidity = `${data.list[i].main.humidity}%`;
+        const dayOfWeek = new Date(data.list[i].dt * 1000).toLocaleDateString('en-US', { weekday: 'long' });
         html += `
 <div class="card text-center" style="width: 25rem">
     <div><img src="${iconUrl}"</div>
-    <div>temp: ${data.list[i].main.temp} &#x2109;</div>
-    <div>condition: ${data.list[0].weather[0].description}</div>
-    <div>humidity: ${data.list[i].main.humidity}%</div>
+    <div>${dayOfWeek}</div>
+    <div>Temperature: ${data.list[i].main.temp} &#x2109;</div>
+    <div>Condition: ${data.list[0].weather[0].description}</div>
+    <div>Humidity: ${data.list[i].main.humidity}%</div>
     </div>
     `
     }
@@ -93,11 +95,29 @@ function updateWeatherForLocation(locationInput) {
         .fail(console.error);
 }
 
+<!-- Form Submission -->
 $("#search-form").click((e) => {
     e.preventDefault();
     const locationInput = $("#location-input").val();
     updateWeatherForLocation(locationInput);
 });
 
+fetch(`https://api.openweathermap.org/data/2.5/weather?q={city name}&appid=${OPEN_WEATHER_APPID}`)
+    .then(response => response.json())
+    .then(data => {
+        const weatherCondition = data.weather[0].main;
+        const weatherBackgroundImage = getWeatherBackgroundImage(weatherCondition); // Implement this function to map the weather condition to a background image
+
+        document.getElementById('weather-background').style.backgroundImage = `url(${weatherBackgroundImage})`;
+    })
+    .catch(error => console.log(error));
+
+function getWeatherBackgroundImage(weatherCondition) {
+    // Implement this function to map the weather condition to a background image URL
+    // For example:
+    if (weatherCondition === 'clear sky') return './img/clear-sky.jpg';
+    if (weatherCondition === 'Cloudy') return 'https://example.com/cloudy.jpg';
+    // ...
+}
 
 
