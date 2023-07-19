@@ -1,6 +1,6 @@
 "use strict";
-let lat = 35.31393820;
-let lng = -100.23623020;
+let lat = 29.424349;
+let lng = -98.491142;
 
 let coords = {lat:lat, lng:lng}
 
@@ -14,7 +14,9 @@ const map = new mapboxgl.Map({
     zoom: 9, // starting zoom
 });
 
-<!-- Curren Location -->
+
+
+<!-- Notification for Current Location -->
 function showCurrentLocationOnMap() {
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
@@ -34,7 +36,7 @@ function showCurrentLocationOnMap() {
 // Call the function to show the current location on the map
 showCurrentLocationOnMap();
 
-
+<!-- 5-Day Forecast  -->
 function fiveDay(coords) {
     $.get("https://api.openweathermap.org/data/2.5/forecast", {
         APPID: OPEN_WEATHER_APPID,
@@ -54,7 +56,7 @@ function fiveDay(coords) {
 
 }
 
-<!-- Weather Info -->
+<!-- Weather Info in 5-Day Forecast -->
 function makeHTML (data){
 let html = `
 
@@ -72,14 +74,25 @@ let html = `
     return html
 }
 
-$("#search-form").submit((e) => {
+function updateWeatherForLocation(locationInput) {
+    $.ajax(`https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=${OPEN_WEATHER_APPID}&units=imperial`)
+        .done((data) => {
+            console.log(data);
+            // Update map's center and marker
+            map.setCenter([data.coord.lon, data.coord.lat]);
+            const marker = new mapboxgl.Marker().setLngLat([data.coord.lon, data.coord.lat]).addTo(map);
+
+            // Call fiveDay function to update weather info
+            coords = { lat: data.coord.lat, lng: data.coord.lon };
+            fiveDay(coords);
+        })
+        .fail(console.error);
+}
+$("#search-form").click((e) => {
     e.preventDefault();
     const locationInput = $("#location-input").val();
-    const searchUrl = getWeatherURL(0, 0, locationInput);
-    $.ajax(searchUrl).done((data) => {
-        console.log(data);
-        weatherInfoOnPage(data);
-    }).fail(console.error);
-
+    updateWeatherForLocation(locationInput);
 });
+
+
 
