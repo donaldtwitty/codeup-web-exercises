@@ -757,8 +757,11 @@ function getTopRunners(runnersArray){
 // console.log(removeEvens([1, 3, 2, 13, 74, 33]));
 //
 
-function removeEvens(inputArray) {
-    return inputArray.filter((number) => number % 2 !== 0)
-}
+// function removeEvens(inputArray) {
+//     return inputArray.filter((number) => number % 2 !== 0)
+// }
+//
+// console.log(removeEvens([62, 3, 2, 8, 531, 7]));
 
-console.log(removeEvens([62, 3, 2, 8, 531, 7]));
+// Warmup July 20,2023 //
+

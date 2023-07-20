@@ -24,12 +24,11 @@ function showCurrentLocationOnMap() {
             (position) => {
                 const {latitude, longitude} = position.coords;
                 map.setCenter([longitude, latitude]);
-
             },
             (error) => {
                 console.error("Error getting current location:", error);
             }
-            );
+        );
     } else {
         console.error("Geolocation is not available in this browser.");
     }
@@ -55,7 +54,6 @@ function fiveDay(coords) {
         })
         .always(function () {
         });
-
 }
 
 <!-- Weather Info in 5-Day Forecast -->
