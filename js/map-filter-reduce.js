@@ -37,23 +37,17 @@ const users = [
 ];
 
 // TODO Use .filter to create an array of user objects where each user object has at least 3 languages in the languages array.
-const usersWithThreeLanguages = users.filter(user => {
-    return user.languages.length >= 3;
-});
+const usersWithThreeLanguages = users.filter(user => user.languages.length >= 3);
 
 console.log(usersWithThreeLanguages);
 
 // TODO Use .map to create an array of strings where each element is a user's email address.
-const userEmails = users.map(user => {
-    return user.email;
-});
+const userEmails = users.map(user => user.email);
 
 console.log(userEmails);
 
 // TODO Use .reduce to get the total years of experience from the list of users. Once you get the total of years you can use the result to calculate the average.
-const totalYears = users.reduce((total, user) => {
-    return total + user.yearsOfExperience;
-}, 0);
+const totalYears = users.reduce((total, user) => total + user.yearsOfExperience, 0);
 
 const averageYears = totalYears / users.length;
 
@@ -61,25 +55,29 @@ console.log(totalYears);
 console.log(averageYears);
 
 // TODO Use .reduce to get the longest email from the list of users.
-const longestEmail = users.reduce((longest, user) => {
-    if (user.email.length > longest.length) {
-        return user.email;
-    } else {
-        return longest;
-    }
-}, "");
+const longestEmail = users.reduce((longest, user) =>
+        user.email.length > longest.length ? user.email : longest
+    , "");
 
 console.log(longestEmail);
 
 // TODO Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
-const listOfUserNames = users.reduce((names, user, index) => {
-    if(index === 0){
-        return user.name;
-    }else if (index === users.length - 1) {
-        return `${names}, and ${user.name}.`;
-    } else {
-        return `${names}, ${user.name}`;
-    }
-}, "Your instructors are:");
+const listOfUserNames = users.reduce((names, user, index) =>
+        index === 0 ? user.name :
+            index === users.length - 1 ? `${names}, and ${user.name}.` :
+                `${names}, ${user.name}`
+    , "Your instructors are:");
 
 console.log(listOfUserNames);
+
+//TODO Use .reduce to get the unique list of languages from the list of users.
+    const uniqueLanguages = users.reduce((prev, curr) => {
+    curr.languages.forEach(language => {
+        if (!prev.includes(language)) {
+            prev.push(language);
+        }
+    });
+    return prev;
+}, []);
+
+console.log(uniqueLanguages);
