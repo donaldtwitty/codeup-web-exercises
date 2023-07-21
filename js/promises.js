@@ -16,13 +16,25 @@ const getLastCommitDate = username => {
         });
 }
 
-// Test the getLastCommitDate function
-getLastCommitDate('octocat').then(date => {
-    console.log(`The last commit made by Octocat was on ${date}.`);
+// getLastCommitDate function
+// const username = prompt("username");
+// getLastCommitDate(username).then(date => {
+//     console.log(`${username} last commit was on ${date}.`);
+// }).catch(error => {
+//     console.error(error.message);
+// });
+
+// Trying to make a prompt to get other user's information //
+const entUsername = prompt("GitHub username:");
+
+getLastCommitDate(entUsername).then(date => {
+    console.log(`${entUsername} last commit was on ${date}.`);
 }).catch(error => {
     console.error(error.message);
 });
 
+
+// TODO Write a function named wait that accepts a number as a parameter, and returns a promise that resolves after the passed number of milliseconds.
 const wait = ms => {
     return new Promise(resolve => {
         setTimeout(() => {
@@ -32,6 +44,6 @@ const wait = ms => {
 }
 
 // Usage examples:
-wait(1000).then(ms => console.log(`You'll see this after ${ms} milliseconds`));
-wait(3000).then(ms => console.log(`You'll see this after ${ms} milliseconds`));
-wait(5000).then(ms => console.log(`You'll see this after ${ms} milliseconds`));
+// wait(1000).then(ms => console.log(`You'll see this after ${ms} milliseconds`));
+// wait(3000).then(ms => console.log(`You'll see this after ${ms} milliseconds`));
+// wait(5000).then(ms => console.log(`You'll see this after ${ms} milliseconds`));
