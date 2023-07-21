@@ -1,4 +1,4 @@
-function getLastCommitDate(username) {
+const getLastCommitDate = username => {
     const url = `https://api.github.com/users/${username}/repos`;
 
     // Include your Personal Access Token in the headers to prevent rate limiting
@@ -23,7 +23,7 @@ getLastCommitDate('octocat').then(date => {
     console.error(error.message);
 });
 
-function wait(ms) {
+const wait = ms => {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(ms);
